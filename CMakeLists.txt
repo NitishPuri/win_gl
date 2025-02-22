@@ -13,6 +13,8 @@ set(GLFW_LIB_DIR ${GLFW_PATH}/lib-vc2022)
 
 # ImGui
 set(IMGUI_PATH ${PROJECT_SOURCE_DIR}/ext/imgui)
+file(GLOB_RECURSE IMGUI_SOURCES ${IMGUI_PATH}/*.cpp)
+
 
 # GLAD
 set(GLAD_PATH ${PROJECT_SOURCE_DIR}/ext/glad)
@@ -25,6 +27,7 @@ file(GLOB_RECURSE HEADERS ${PROJECT_SOURCE_DIR}/src/*.h)
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 target_sources(${PROJECT_NAME} PRIVATE ${GLAD_SOURCES})
+target_sources(${PROJECT_NAME} PRIVATE ${IMGUI_SOURCES})
 
 
 add_compile_definitions(${PROJECT_NAME} PUBLIC ROOT="${PROJECT_SOURCE_DIR}")
